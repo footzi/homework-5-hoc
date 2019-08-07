@@ -16,4 +16,14 @@ import React from 'react';
   стиль 'background: red'
 */
 
-//export const withRedBackground
+export const withRedBackground = (WrappedComponent) => {
+  return class extends WrappedComponent {
+    render() {
+      const element = super.render();
+      const style = {'background': 'red'}
+      const newElement = React.cloneElement(element, {style})
+
+      return newElement;
+    }
+  }
+}
