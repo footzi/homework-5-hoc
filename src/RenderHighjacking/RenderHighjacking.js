@@ -20,7 +20,7 @@ export const withRedBackground = (WrappedComponent) => {
   return class extends WrappedComponent {
     render() {
       const element = super.render();
-      const style = {'background': 'red'}
+      const style = element.type === 'button' ? {'background': 'red'} : {};
       const newElement = React.cloneElement(element, {style})
 
       return newElement;
